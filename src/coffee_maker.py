@@ -12,19 +12,21 @@ class CoffeeMaker:
         return self.recipe_book.get_recipes()
 
     def add_recipe(self, recipe):
-        self.recipe_book.add_recipe(recipe)
+        return self.recipe_book.add_recipe(recipe)
 
     def delete_recipe(self, recipe_index):
-        self.recipe_book.delete_recipe(recipe_index)
+        return self.recipe_book.delete_recipe(recipe_index)
 
     def edit_recipe(self, recipe_index, new_recipe):
-        self.recipe_book.edit_recipe(recipe_index, new_recipe)
+        return self.recipe_book.edit_recipe(recipe_index, new_recipe)
 
     def add_inventory(self, coffee, milk, sugar, chocolate):
         self.inventory.add_coffee(coffee)
         self.inventory.add_milk(milk)
         self.inventory.add_sugar(sugar)
         self.inventory.add_chocolate(chocolate)
+        
+        return True
 
     def check_inventory(self):
         return self.inventory

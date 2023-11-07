@@ -17,12 +17,15 @@ class RecipeBook:
         if recipe in self.recipes:
             return False
 
+        if not recipe.verify():
+            return False
+
         self.recipes.append(recipe)
         return True
 
     def delete_recipe(self, recipe_to_delete):
         if recipe_to_delete < 0 or recipe_to_delete >= len(self.recipes):
-            return None
+            return False
 
         if self.recipes[recipe_to_delete] is not None:
             recipe_name = self.recipes[recipe_to_delete].name
@@ -32,7 +35,7 @@ class RecipeBook:
 
     def edit_recipe(self, recipe_to_edit, new_recipe):
         if recipe_to_edit < 0 or recipe_to_edit >= len(self.recipes):
-            return None
+            return False
 
         if self.recipes[recipe_to_edit] is not None:
             recipe_name = self.recipes[recipe_to_edit].name
@@ -40,4 +43,4 @@ class RecipeBook:
             print(f"Receita: {recipe_name} editada com sucesso")
             return True
         else:
-            return None
+            return False
